@@ -6253,23 +6253,29 @@ export const referenceReadings: ReferenceReading[] = [
     "rain": 0
   }
 ];
-export const latestReading = readings[readings.length - 1];
-export const chartReadings = readings.map((reading) => ({
+
+// Live views must never surface rows that are ahead of the current clock.
+// Keep the complete source arrays above intact so a future Supabase adapter
+// can apply the same boundary with a timestamp lte filter.
+const timestampMs = (timestamp: string) => Date.parse(timestamp.replace(' ', 'T'));
+export const liveReadings = readings.filter((reading) => timestampMs(reading.timestamp) <= Date.now());
+export const liveLatestReading = liveReadings[liveReadings.length - 1] ?? readings[0];
+export const liveChartReadings = liveReadings.map((reading) => ({
   ...reading,
   label: reading.timestamp.slice(5, 16),
 }));
-export const anomalies = readings.filter((reading) => reading.status !== 'NORMAL').slice().reverse();
-export const summary = {
+export const liveAnomalies = liveReadings.filter((reading) => reading.status !== 'NORMAL').slice().reverse();
+export const liveSummary = {
   totalStations: 3,
   activeStations: 1,
-  normalReadings: readings.filter((reading) => reading.status === 'NORMAL').length,
-  possibleAnomalies: readings.filter((reading) => reading.status === 'POSSIBLE ANOMALY').length,
-  sensorFaults: readings.filter((reading) => reading.status === 'SENSOR FAULT').length,
-  criticalAlerts: readings.filter((reading) => reading.severity === 'CRITICAL').length,
+  normalReadings: liveReadings.filter((reading) => reading.status === 'NORMAL').length,
+  possibleAnomalies: liveReadings.filter((reading) => reading.status === 'POSSIBLE ANOMALY').length,
+  sensorFaults: liveReadings.filter((reading) => reading.status === 'SENSOR FAULT').length,
+  criticalAlerts: liveReadings.filter((reading) => reading.severity === 'CRITICAL').length,
 };
 
 export const stations = [
-  { id: 'AWS-01', name: 'Visakhapatnam AWS', lat: 17.6868, lng: 83.2185, status: (anomalies[0]?.status ?? 'NORMAL') as Status, detail: 'Primary telemetry station' },
+  { id: 'AWS-01', name: 'Visakhapatnam AWS', lat: 17.6868, lng: 83.2185, status: (liveAnomalies[0]?.status ?? 'NORMAL') as Status, detail: 'Primary telemetry station' },
   { id: 'STATION_B', name: 'Comparison Station 1', lat: 17.6801, lng: 83.03, status: 'NORMAL' as Status, detail: 'Reference telemetry' },
   { id: 'STATION_C', name: 'Comparison Station 2', lat: 17.6801, lng: 83.1171, status: 'NORMAL' as Status, detail: 'Reference telemetry' },
 ];
@@ -6279,5 +6285,13 @@ export const sourceMeta = {
   rows: readings.length,
   totalRows: readings.length + comparisonReadings.length + referenceReadings.length,
   window: '05–11 Sep 2026',
+  timezone: 'IST',
+};
+export const liveSourceMeta = {
+  rows: liveReadings.length,
+  totalRows: liveReadings.length + comparisonReadings.length + referenceReadings.length,
+  window: liveReadings.length
+    ? `${liveReadings[0].timestamp.slice(0, 10)}–${liveReadings[liveReadings.length - 1].timestamp.slice(0, 10)}`
+    : 'No valid observations',
   timezone: 'IST',
 };
