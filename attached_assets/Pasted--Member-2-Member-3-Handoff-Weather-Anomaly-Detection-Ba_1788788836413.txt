@@ -1,0 +1,210 @@
+# Member 2 → Member 3 Handoff
+**Weather Anomaly Detection Backend — Ready for Dashboard Integration**
+
+---
+
+## 1. Connection Details
+
+```
+Project URL:   https://zcjrtukvwlasqqcipqcf.supabase.co
+Anon Key:      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpjanJ0dWt2d2xhc3FxY2lwcWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg0OTA3ODAsImV4cCI6MjEwNDA2Njc4MH0.VGo3E3YKNeREqWQyYQIG6rzWLazoTseGcQSZ3ORDqYw
+```
+
+Install the Supabase JS client:
+```bash
+npm install @supabase/supabase-js
+```
+
+```javascript
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  'https://zcjrtukvwlasqqcipqcf.supabase.co',
+  'PASTE_ANON_KEY_HERE'
+)
+```
+
+This anon key is safe to use in frontend code — it's public/read-focused, not a secret.
+
+---
+
+## 2. Tables Available
+
+### `stations` — for the map
+| Column | Type | Notes |
+|---|---|---|
+| station_id | text (PK) | e.g. `AWS-01`, `STATION_B`, `STATION_C` |
+| name | text | Display name |
+| latitude | float | |
+| longitude | float | |
+
+Currently **3 real stations**:
+- `AWS-01` — "AWS-01 / Visakhapatnam AWS" (17.6868, 83.2185) — **primary station**
+- `STATION_B` — "Comparison Station 1" (17.6801, 83.0300) — reference station
+- `STATION_C` — "Comparison Station 2" (17.6801, 83.1171) — comparison station
+
+For the map view, **AWS-01 is the one that matters for anomaly status** (🟢/🟡/🔴). B and C are reference-only stations used by Member 1's spatial comparison — you can show them as smaller/greyed pins if useful, but they don't have their own anomaly detection.
+
+### `sensor_readings` — raw weather data
+| Column | Type | Notes |
+|---|---|---|
+| id | bigint | |
+| station_id | text | FK → stations |
+| timestamp | timestamptz | |
+| temperature | float | °C |
+| humidity | float | % |
+| pressure | float | hPa |
+| wind_speed | float | nullable (only present for STATION_B/C in latest batch) |
+| precipitation | float | nullable |
+| rain | float | nullable |
+| data_source | text | `'historical'` for now — `'live'` reserved for future real-time data |
+
+168 rows per station × 3 stations = 504 rows currently.
+
+### `anomalies` — Member 1's ML decisions (the core data)
+| Column | Type | Notes |
+|---|---|---|
+| id | bigint | |
+| station_id | text | Currently only `AWS-01` has anomaly detection |
+| timestamp | timestamptz | |
+| final_status | text | `NORMAL` / `POSSIBLE ANOMALY` / `SENSOR FAULT` |
+| fault_type | text | e.g. `TEMPERATURE SPIKE`, `SENSOR DROPOUT`, `NONE` |
+| confidence | text | `LOW` / `MEDIUM` / `HIGH` |
+| confidence_score | float | |
+| severity | text | `NORMAL` / `LOW` / `MEDIUM` / `HIGH` / `CRITICAL` |
+| reason | text | Technical explanation |
+| recommendation | text | What to do about it |
+| temporal_result | text | May be NULL depending on batch |
+| spatial_result | text | May be NULL depending on batch |
+| cross_sensor_result | text | May be NULL depending on batch |
+| evidence_count | int | May be NULL depending on batch |
+| data_source | text | `'historical'` |
+
+**For your map colors:**
+- `final_status = 'NORMAL'` → 🟢
+- `final_status = 'POSSIBLE ANOMALY'` → 🟡
+- `final_status = 'SENSOR FAULT'` → 🔴
+
+### `alerts` — Groq's plain-English explanations
+| Column | Type | Notes |
+|---|---|---|
+| id | bigint | |
+| station_id | text | |
+| anomaly_id | bigint | FK → anomalies.id |
+| message | text | The plain-English explanation to display |
+| created_at | timestamptz | |
+
+Only exists for flagged anomalies (37 currently), not for `NORMAL` readings.
+
+---
+
+## 3. Example Queries You'll Need
+
+### Get all stations for the map
+```javascript
+const { data: stations } = await supabase
+  .from('stations')
+  .select('*')
+```
+
+### Get latest anomaly status per station (for map pin color)
+```javascript
+const { data } = await supabase
+  .from('anomalies')
+  .select('*')
+  .eq('station_id', 'AWS-01')
+  .order('timestamp', { ascending: false })
+  .limit(1)
+```
+
+### Get full detail for one anomaly (matches your "Anomaly Details" screen spec)
+```javascript
+const { data: anomaly } = await supabase
+  .from('anomalies')
+  .select('*')
+  .eq('id', anomalyId)
+  .single()
+
+const { data: reading } = await supabase
+  .from('sensor_readings')
+  .select('*')
+  .eq('station_id', anomaly.station_id)
+  .eq('timestamp', anomaly.timestamp)
+  .single()
+
+const { data: alert } = await supabase
+  .from('alerts')
+  .select('message')
+  .eq('anomaly_id', anomalyId)
+  .maybeSingle()   // null if it was a NORMAL reading — no explanation generated
+```
+
+This gives you everything for the anomaly detail card:
+```
+AWS-07
+Temperature: 82°C
+Isolation Forest: [from anomaly.reason]
+Diagnosis: [anomaly.fault_type]
+Recommendation: [anomaly.recommendation]
+Explanation: [alert.message]
+```
+
+### Get temperature/humidity/pressure history for charts
+```javascript
+const { data: history } = await supabase
+  .from('sensor_readings')
+  .select('timestamp, temperature, humidity, pressure')
+  .eq('station_id', 'AWS-01')
+  .order('timestamp', { ascending: true })
+```
+
+### Mark anomalous points on the chart
+Cross-reference `sensor_readings.timestamp` with `anomalies.timestamp` where `final_status != 'NORMAL'` — same station, matching timestamp.
+
+### Dashboard summary stats
+```javascript
+const { data: all } = await supabase
+  .from('anomalies')
+  .select('final_status')
+  .eq('station_id', 'AWS-01')
+
+const normal = all.filter(a => a.final_status === 'NORMAL').length
+const possible = all.filter(a => a.final_status === 'POSSIBLE ANOMALY').length
+const faults = all.filter(a => a.final_status === 'SENSOR FAULT').length
+```
+
+---
+
+## 4. Fault Simulation Buttons
+
+There's a `simulate-fault` Edge Function already deployed for this:
+```
+POST https://zcjrtukvwlasqqcipqcf.supabase.co/functions/v1/simulate-fault
+Headers: Authorization: Bearer <anon key>, Content-Type: application/json
+Body: { "fault_type": "SPIKE" }   // or "DRIFT", "FLATLINE", "DROPOUT"
+```
+
+Wire your 4 buttons (Simulate Spike / Drift / Flatline / Dropout) to call this with the matching `fault_type`. It injects a fault reading, runs it through Groq, and stores the result — refresh your dashboard query after calling it to show the new anomaly live.
+
+---
+
+## 5. Important Notes
+
+- **Not all anomalies have explanations.** Only non-`NORMAL` rows have a matching `alerts` row. Handle the `null` case in your UI (e.g., don't show an explanation box for normal readings).
+- **`temporal_result` / `spatial_result` / `cross_sensor_result` / `evidence_count` are sometimes NULL** — this depends on which data batch a row came from. Handle gracefully (e.g., hide that field if null) rather than assuming it's always populated.
+- **STATION_B and STATION_C don't have their own anomaly records** — they're reference-only stations for AWS-01's spatial comparison. Don't expect anomaly pins for them.
+- **Timestamps are stored with timezone info** (IST, `+05:30`) — make sure your date formatting handles this correctly, not just UTC.
+
+---
+
+## 6. Quick Checklist for Your Build
+
+- [ ] Connect Supabase client with URL + anon key above
+- [ ] Map: pull `stations`, color-code by latest `anomalies.final_status` for AWS-01
+- [ ] Dashboard stats: count NORMAL / POSSIBLE ANOMALY / SENSOR FAULT
+- [ ] Charts: `sensor_readings` history, mark anomalous points
+- [ ] Anomaly detail modal: join anomaly + reading + alert as shown above
+- [ ] 4 simulate buttons → call `simulate-fault` edge function
+- [ ] Handle nulls gracefully (breakdown fields, missing alerts for NORMAL rows)
+
+Ping me if any query doesn't return what you expect — happy to debug from the DB side. This is the correct supabase
