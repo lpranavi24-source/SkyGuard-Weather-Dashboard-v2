@@ -1,0 +1,169 @@
+timestamp,temperature,humidity,pressure,final_status,fault_type,confidence,confidence_score,severity,reason,recommendation
+2026-09-05 00:00:00+05:30,27.8,90.492836,1003.63446,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 01:00:00+05:30,27.45,91.54769,1003.6291,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 02:00:00+05:30,27.15,92.621506,1003.2265,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 03:00:00+05:30,26.85,93.71114,1003.22174,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 04:00:00+05:30,26.7,93.704346,1003.5182,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 05:00:00+05:30,26.7,94.54189,1003.9164,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 06:00:00+05:30,27.15,92.34747,1004.71967,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 07:00:00+05:30,28.85,84.12935,1005.3425,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 08:00:00+05:30,30.6,75.84088,1005.56805,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 09:00:00+05:30,32.0,62.52632,1005.2899,SENSOR FAULT,HUMIDITY SPIKE,MEDIUM,50.0,MEDIUM,sudden humidity change; HUMIDITY_INCONSISTENCY,Inspect humidity sensor and verify calibration.
+2026-09-05 10:00:00+05:30,57.55,57.237797,1005.1985,SENSOR FAULT,TEMPERATURE SPIKE,HIGH,75.0,CRITICAL,Isolation Forest anomaly; sudden temperature change; gradual temperature drift; TEMPERATURE_DIFFERENCE,Inspect temperature sensor and verify calibration.
+2026-09-05 11:00:00+05:30,32.65,57.957626,1004.5033,SENSOR FAULT,TEMPERATURE SPIKE,MEDIUM,50.0,CRITICAL,sudden temperature change; TEMPERATURE_INCONSISTENCY,Inspect temperature sensor and verify calibration.
+2026-09-05 12:00:00+05:30,30.85,67.96468,1003.8792,SENSOR FAULT,HUMIDITY SPIKE,MEDIUM,50.0,MEDIUM,sudden humidity change; HUMIDITY_INCONSISTENCY,Inspect humidity sensor and verify calibration.
+2026-09-05 13:00:00+05:30,30.0,77.56986,1003.1697,SENSOR FAULT,TEMPERATURE DRIFT,MEDIUM,50.0,MEDIUM,Isolation Forest anomaly; gradual temperature drift,Inspect temperature sensor for calibration drift.
+2026-09-05 14:00:00+05:30,32.15,59.797398,1002.20593,SENSOR FAULT,HUMIDITY SPIKE,MEDIUM,50.0,MEDIUM,sudden humidity change; HUMIDITY_INCONSISTENCY,Inspect humidity sensor and verify calibration.
+2026-09-05 15:00:00+05:30,31.5,67.483444,1001.5992,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 16:00:00+05:30,30.85,70.65901,1001.5895,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 17:00:00+05:30,29.6,77.7425,1001.4714,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 18:00:00+05:30,28.65,85.36313,1002.1541,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 19:00:00+05:30,28.25,88.410614,1003.04407,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 20:00:00+05:30,30.6,89.45023,1004.03735,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-05 21:00:00+05:30,33.0,90.773735,1004.83215,SENSOR FAULT,TEMPERATURE SENSOR BIAS,LOW,25.0,MEDIUM,TEMPERATURE_DIFFERENCE,Compare temperature sensor with nearby stations and recalibrate if required.
+2026-09-05 22:00:00+05:30,35.45,91.30783,1005.0302,SENSOR FAULT,TEMPERATURE DRIFT,MEDIUM,50.0,MEDIUM,gradual temperature drift; TEMPERATURE_DIFFERENCE,Inspect temperature sensor for calibration drift.
+2026-09-05 23:00:00+05:30,37.7,93.19847,1004.7279,SENSOR FAULT,TEMPERATURE DRIFT,MEDIUM,50.0,MEDIUM,gradual temperature drift; TEMPERATURE_DIFFERENCE,Inspect temperature sensor for calibration drift.
+2026-09-06 00:00:00+05:30,39.9,94.84866,1004.1262,SENSOR FAULT,TEMPERATURE DRIFT,MEDIUM,50.0,MEDIUM,gradual temperature drift; TEMPERATURE_DIFFERENCE,Inspect temperature sensor for calibration drift.
+2026-09-06 01:00:00+05:30,42.15,94.00229,1003.5251,SENSOR FAULT,TEMPERATURE DRIFT,MEDIUM,50.0,CRITICAL,gradual temperature drift; TEMPERATURE_DIFFERENCE,Inspect temperature sensor for calibration drift.
+2026-09-06 02:00:00+05:30,26.9,92.06006,1002.8245,SENSOR FAULT,TEMPERATURE SPIKE,MEDIUM,50.0,CRITICAL,sudden temperature change; TEMPERATURE_INCONSISTENCY,Inspect temperature sensor and verify calibration.
+2026-09-06 03:00:00+05:30,26.65,91.77238,1002.3231,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 04:00:00+05:30,26.65,90.68534,1002.72125,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 05:00:00+05:30,26.7,90.14952,1003.02045,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 06:00:00+05:30,27.3,87.54793,1003.9256,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 07:00:00+05:30,28.8,80.45785,1004.34644,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 08:00:00+05:30,30.35,73.58151,1004.967,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 09:00:00+05:30,31.85,64.97978,1005.1881,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 10:00:00+05:30,32.85,60.498173,1005.3025,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 11:00:00+05:30,33.25,59.866737,1004.8108,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 12:00:00+05:30,33.25,67.10114,1003.8905,POSSIBLE ANOMALY,MULTIVARIATE ANOMALY,LOW,25.0,LOW,Isolation Forest anomaly,Investigate sensor readings and verify station health.
+2026-09-06 13:00:00+05:30,33.25,66.8712,1002.8928,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 14:00:00+05:30,33.25,68.89778,1002.0964,SENSOR FAULT,TEMPERATURE FLATLINE,MEDIUM,50.0,MEDIUM,temperature value stuck,Check for a stuck or frozen temperature sensor.
+2026-09-06 15:00:00+05:30,33.25,72.98594,1001.4878,SENSOR FAULT,TEMPERATURE FLATLINE,MEDIUM,50.0,MEDIUM,temperature value stuck,Check for a stuck or frozen temperature sensor.
+2026-09-06 16:00:00+05:30,30.2,77.829094,1001.6796,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 17:00:00+05:30,29.4,82.466,1002.0658,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 18:00:00+05:30,28.8,86.13838,1002.9527,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 19:00:00+05:30,28.5,88.69197,1004.34204,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 20:00:00+05:30,28.3,91.06096,1004.9361,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 21:00:00+05:30,28.15,92.40174,1005.5312,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 22:00:00+05:30,27.95,90.77047,1005.42847,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-06 23:00:00+05:30,27.5,89.140785,1005.0237,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 00:00:00+05:30,27.05,89.10654,1004.4195,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 01:00:00+05:30,26.75,89.61687,1003.8175,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 02:00:00+05:30,26.5,99.0,1003.41547,SENSOR FAULT,HUMIDITY SENSOR BIAS,LOW,25.0,MEDIUM,HUMIDITY_DIFFERENCE,Compare humidity sensor with nearby stations and recalibrate if required.
+2026-09-07 03:00:00+05:30,26.4,89.59126,1003.11566,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 04:00:00+05:30,26.35,89.5876,1002.9156,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 05:00:00+05:30,26.35,89.31988,1003.21423,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 06:00:00+05:30,26.85,87.24759,1003.5203,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 07:00:00+05:30,28.55,81.1483,1004.24304,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 08:00:00+05:30,30.4,73.589836,1004.86816,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 09:00:00+05:30,31.95,66.176186,1004.89105,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 10:00:00+05:30,33.25,60.76899,1004.313,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 11:00:00+05:30,33.75,60.51847,1003.6232,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 12:00:00+05:30,33.8,61.619995,1017.5289,SENSOR FAULT,PRESSURE ANOMALY,HIGH,100.0,HIGH,Isolation Forest anomaly; sudden pressure change; PRESSURE_INCONSISTENCY; PRESSURE_DIFFERENCE,Inspect pressure sensor and verify calibration.
+2026-09-07 13:00:00+05:30,30.15,79.450356,1017.07684,SENSOR FAULT,HUMIDITY SPIKE,HIGH,75.0,HIGH,Isolation Forest anomaly; sudden humidity change; PRESSURE_DIFFERENCE,Inspect humidity sensor and verify calibration.
+2026-09-07 14:00:00+05:30,31.6,72.70695,1015.7048,SENSOR FAULT,PRESSURE SENSOR BIAS,MEDIUM,50.0,MEDIUM,Isolation Forest anomaly; PRESSURE_DIFFERENCE,Compare pressure sensor with nearby stations and recalibrate if required.
+2026-09-07 15:00:00+05:30,31.8,72.526535,1014.81165,SENSOR FAULT,PRESSURE SENSOR BIAS,LOW,25.0,MEDIUM,PRESSURE_DIFFERENCE,Compare pressure sensor with nearby stations and recalibrate if required.
+2026-09-07 16:00:00+05:30,31.35,74.18477,1014.7055,SENSOR FAULT,PRESSURE SENSOR BIAS,LOW,25.0,MEDIUM,PRESSURE_DIFFERENCE,Compare pressure sensor with nearby stations and recalibrate if required.
+2026-09-07 17:00:00+05:30,30.3,80.41357,999.8889,SENSOR FAULT,PRESSURE ANOMALY,MEDIUM,50.0,MEDIUM,sudden pressure change,Inspect pressure sensor and verify calibration.
+2026-09-07 18:00:00+05:30,29.35,86.19046,1000.96985,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 19:00:00+05:30,29.1,88.73902,1002.26025,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 20:00:00+05:30,29.05,88.21522,1002.8569,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 21:00:00+05:30,28.9,88.46284,1003.1534,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 22:00:00+05:30,28.55,87.13914,1003.148,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-07 23:00:00+05:30,28.1,85.56186,1002.7433,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 00:00:00+05:30,27.65,85.77252,1002.2385,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 01:00:00+05:30,27.4,85.49241,1002.0357,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 02:00:00+05:30,27.15,85.46748,1001.7333,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 03:00:00+05:30,26.95,85.447464,1001.2325,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 04:00:00+05:30,26.9,84.677086,1001.33136,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 05:00:00+05:30,26.9,84.17015,1001.82904,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 06:00:00+05:30,27.3,82.96061,1002.4324,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 07:00:00+05:30,28.95,77.64815,1003.2535,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 08:00:00+05:30,,,,SENSOR FAULT,SENSOR DROPOUT,HIGH,100.0,CRITICAL,sensor data missing,"Check sensor power, communication link, and connection."
+2026-09-08 09:00:00+05:30,,,,SENSOR FAULT,SENSOR DROPOUT,HIGH,100.0,CRITICAL,sensor data missing,"Check sensor power, communication link, and connection."
+2026-09-08 10:00:00+05:30,,,,SENSOR FAULT,SENSOR DROPOUT,HIGH,100.0,CRITICAL,sensor data missing,"Check sensor power, communication link, and connection."
+2026-09-08 11:00:00+05:30,33.85,55.506092,1002.3303,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 12:00:00+05:30,34.2,54.76111,1001.24023,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 13:00:00+05:30,32.2,70.693085,999.9172,SENSOR FAULT,HUMIDITY SPIKE,HIGH,75.0,HIGH,sudden humidity change; HUMIDITY_INCONSISTENCY; HUMIDITY_DIFFERENCE,Inspect humidity sensor and verify calibration.
+2026-09-08 14:00:00+05:30,32.35,67.44877,998.9239,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 15:00:00+05:30,31.65,70.59379,998.4157,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 16:00:00+05:30,30.55,79.036964,998.2003,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 17:00:00+05:30,30.55,80.68277,998.3995,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 18:00:00+05:30,30.05,82.78527,999.28815,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 19:00:00+05:30,29.7,85.4675,1000.2783,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 20:00:00+05:30,29.05,88.99609,1001.2641,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 21:00:00+05:30,28.45,92.41792,1001.7528,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 22:00:00+05:30,27.95,94.59086,1002.0438,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-08 23:00:00+05:30,27.65,91.019806,1001.5417,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 00:00:00+05:30,27.35,88.60092,1001.13885,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 01:00:00+05:30,27.15,84.95731,1000.5387,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 02:00:00+05:30,27.0,82.42858,1000.1384,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 03:00:00+05:30,26.8,82.156815,1000.03564,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 04:00:00+05:30,26.6,82.8796,1000.13214,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 05:00:00+05:30,26.9,81.675095,1000.4354,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 06:00:00+05:30,27.95,77.73558,1001.04834,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 07:00:00+05:30,29.45,72.33695,1001.7679,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 08:00:00+05:30,30.85,67.55824,1002.18677,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 09:00:00+05:30,32.0,63.092155,1002.2038,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 10:00:00+05:30,33.0,59.096214,1002.0194,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 11:00:00+05:30,33.65,56.46907,1001.4315,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 12:00:00+05:30,33.9,55.35126,1000.34015,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 13:00:00+05:30,33.75,55.64937,999.0437,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 14:00:00+05:30,33.3,57.587257,998.0416,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 15:00:00+05:30,32.3,62.591286,997.7283,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 16:00:00+05:30,31.0,69.84799,997.8088,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 17:00:00+05:30,29.85,77.318016,998.19006,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 18:00:00+05:30,29.1,83.16639,998.97516,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 19:00:00+05:30,28.6,87.918655,1000.16254,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 20:00:00+05:30,28.15,92.13032,1000.952,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 21:00:00+05:30,27.85,95.4242,1001.3458,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 22:00:00+05:30,27.65,97.39933,1001.34265,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-09 23:00:00+05:30,27.45,98.83502,1001.2399,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 00:00:00+05:30,27.25,98.54352,1000.7394,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 01:00:00+05:30,27.05,97.38791,1000.0394,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 02:00:00+05:30,26.9,96.52674,999.43994,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 03:00:00+05:30,26.55,97.95568,999.136,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 04:00:00+05:30,26.2,100.0,998.9315,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 05:00:00+05:30,26.4,98.243546,999.13385,SENSOR FAULT,HUMIDITY SENSOR BIAS,LOW,25.0,MEDIUM,HUMIDITY_DIFFERENCE,Compare humidity sensor with nearby stations and recalibrate if required.
+2026-09-10 06:00:00+05:30,27.65,89.94847,999.9489,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 07:00:00+05:30,29.5,79.12715,1001.1712,SENSOR FAULT,HUMIDITY SPIKE,MEDIUM,50.0,MEDIUM,sudden humidity change; HUMIDITY_INCONSISTENCY,Inspect humidity sensor and verify calibration.
+2026-09-10 08:00:00+05:30,31.1,70.91509,1001.99146,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 09:00:00+05:30,32.3,65.65727,1002.0091,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 10:00:00+05:30,33.25,61.867393,1001.625,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 11:00:00+05:30,33.65,60.49617,1001.03326,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 12:00:00+05:30,33.2,62.7852,1000.2303,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 13:00:00+05:30,32.2,67.419426,999.2203,SENSOR FAULT,HUMIDITY SENSOR BIAS,LOW,25.0,MEDIUM,HUMIDITY_DIFFERENCE,Compare humidity sensor with nearby stations and recalibrate if required.
+2026-09-10 14:00:00+05:30,31.4,71.60376,998.51154,SENSOR FAULT,HUMIDITY SENSOR BIAS,LOW,25.0,MEDIUM,HUMIDITY_DIFFERENCE,Compare humidity sensor with nearby stations and recalibrate if required.
+2026-09-10 15:00:00+05:30,31.05,73.479774,998.3073,SENSOR FAULT,HUMIDITY SENSOR BIAS,LOW,25.0,MEDIUM,HUMIDITY_DIFFERENCE,Compare humidity sensor with nearby stations and recalibrate if required.
+2026-09-10 16:00:00+05:30,30.85,74.32312,998.30426,SENSOR FAULT,HUMIDITY SENSOR BIAS,LOW,25.0,MEDIUM,HUMIDITY_DIFFERENCE,Compare humidity sensor with nearby stations and recalibrate if required.
+2026-09-10 17:00:00+05:30,30.6,75.6165,998.69904,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 18:00:00+05:30,30.15,78.284195,999.4886,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-10 19:00:00+05:30,29.65,81.285805,1000.57635,SENSOR FAULT,HUMIDITY SENSOR BIAS,LOW,25.0,MEDIUM,HUMIDITY_DIFFERENCE,Compare humidity sensor with nearby stations and recalibrate if required.
+2026-09-10 20:00:00+05:30,29.05,84.649796,1001.4632,SENSOR FAULT,HUMIDITY SENSOR BIAS,LOW,25.0,MEDIUM,HUMIDITY_DIFFERENCE,Compare humidity sensor with nearby stations and recalibrate if required.
+2026-09-10 21:00:00+05:30,28.2,88.93074,1002.0476,POSSIBLE ANOMALY,MULTIVARIATE ANOMALY,LOW,25.0,LOW,Isolation Forest anomaly,Investigate sensor readings and verify station health.
+2026-09-10 22:00:00+05:30,27.25,94.00658,1002.43164,POSSIBLE ANOMALY,MULTIVARIATE ANOMALY,LOW,25.0,LOW,Isolation Forest anomaly,Investigate sensor readings and verify station health.
+2026-09-10 23:00:00+05:30,26.55,97.666626,1002.42096,POSSIBLE ANOMALY,MULTIVARIATE ANOMALY,LOW,25.0,LOW,Isolation Forest anomaly,Investigate sensor readings and verify station health.
+2026-09-11 00:00:00+05:30,26.4,98.243546,1001.722,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 01:00:00+05:30,26.5,97.37733,1000.7277,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 02:00:00+05:30,26.55,96.80396,1000.03186,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 03:00:00+05:30,25.65,100.0,1001.41174,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 04:00:00+05:30,25.8,100.0,1001.11536,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 05:00:00+05:30,26.15,99.704834,1000.92163,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 06:00:00+05:30,26.9,94.83003,1000.9331,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 07:00:00+05:30,28.1,87.87672,1001.1505,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 08:00:00+05:30,29.45,80.5418,1001.3697,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 09:00:00+05:30,30.8,74.094894,1001.58887,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 10:00:00+05:30,31.8,69.581276,1001.7032,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 11:00:00+05:30,32.35,67.44877,1001.71136,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 12:00:00+05:30,32.3,68.04223,1001.4118,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 13:00:00+05:30,31.75,71.03162,1000.9062,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 14:00:00+05:30,31.0,75.45543,1000.39716,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 15:00:00+05:30,30.1,80.62524,999.7866,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 16:00:00+05:30,29.2,85.67004,999.4744,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 17:00:00+05:30,28.55,89.48337,999.3652,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 18:00:00+05:30,28.05,91.8538,999.6564,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 19:00:00+05:30,27.6,93.4689,1000.34656,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 20:00:00+05:30,27.2,94.561554,1001.1366,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 21:00:00+05:30,26.8,95.38934,1001.92706,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 22:00:00+05:30,26.5,95.662506,1002.61914,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.
+2026-09-11 23:00:00+05:30,26.2,96.508965,1003.0129,NORMAL,NONE,LOW,0.0,NORMAL,All monitoring checks normal.,Continue normal monitoring.

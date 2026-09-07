@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "SkyGuard Weather Dashboard"
+description = "A presentation-ready AI-powered weather station anomaly detection dashboard for monitoring stations around Visakhapatnam, exploring trends, tri-context evidence, and simulated sensor faults using the supplied CSV datasets."
+version = "1.0.0"
+id = "artifacts/skyguard-dashboard"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20514
+
+[services.development]
+run = "pnpm --filter @workspace/skyguard-dashboard run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/skyguard-dashboard", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/skyguard-dashboard/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20514"
+BASE_PATH = "/"
