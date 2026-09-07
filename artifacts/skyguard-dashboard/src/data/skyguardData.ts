@@ -29,8 +29,9 @@ export interface ReferenceReading {
   rain: number | null;
 }
 
-// Local data adapter: the supplied 168 AWS-01 anomaly rows plus the two supplied
-// 168-row reference station histories. Replace this module with Supabase queries later.
+// Local data adapter: the supplied AWS-01 anomaly rows plus the supplied
+// reference station histories. The Supabase query adapter is defined below and
+// uses the same live timestamp boundary before deriving monitoring views.
 export const readings: Reading[] = [
   {
     "timestamp": "2026-09-05 00:00:00+05:30",
@@ -6295,3 +6296,157 @@ export const liveSourceMeta = {
     : 'No valid observations',
   timezone: 'IST',
 };
+
+type SupabaseSensorReading = {
+  timestamp: string;
+  temperature: number | null;
+  humidity: number | null;
+  pressure: number | null;
+  wind_speed: number | null;
+  precipitation: number | null;
+  rain: number | null;
+};
+
+/**
+ * Single query-layer entry point for the Supabase adapter. Both underlying
+ * queries receive the same cutoff instant so the derived UI data is coherent.
+ */
+export async function queryLiveDashboardData(
+  client: SupabaseClient,
+  stationId = 'AWS-01',
+  now = new Date(),
+): Promise<LiveDashboardData> {
+  const [sensorRows, anomalyRows] = await Promise.all([
+    queryLiveSensorReadings(client, stationId, now),
+    queryLiveAnomalies(client, stationId, now),
+  ]);
+  return buildLiveDashboardData(sensorRows, anomalyRows);
+}
+
+/**
+ * Query sensor history using the same live boundary as the local adapter.
+ * Future rows remain in Supabase, but are excluded before they reach any
+ * monitoring view.
+ */
+export async function queryLiveSensorReadings(
+  client: SupabaseClient,
+  stationId = 'AWS-01',
+  now = new Date(),
+): Promise<SupabaseSensorReading[]> {
+  const { data, error } = await client
+    .from('sensor_readings')
+    .select('timestamp, temperature, humidity, pressure, wind_speed, precipitation, rain')
+    .eq('station_id', stationId)
+    .lte('timestamp', liveCutoff(now))
+    .order('timestamp', { ascending: true });
+
+  if (error) throw error;
+  return data ?? [];
+}
+
+export function buildLiveDashboardData(
+  sensorRows: SupabaseSensorReading[],
+  anomalyRows: SupabaseAnomaly[],
+): LiveDashboardData {
+  const anomalyByTimestamp = new Map(anomalyRows.map((anomaly) => [anomaly.timestamp, anomaly]));
+  const readings = sensorRows.map((sensor) => {
+    const anomaly = anomalyByTimestamp.get(sensor.timestamp);
+    return {
+      timestamp: sensor.timestamp,
+      temperature: sensor.temperature,
+      humidity: sensor.humidity,
+      pressure: sensor.pressure,
+      status: anomaly?.final_status ?? 'NORMAL',
+      faultType: anomaly?.fault_type ?? 'NONE',
+      confidence: anomaly?.confidence ?? 'LOW',
+      confidenceScore: anomaly?.confidence_score ?? 0,
+      severity: anomaly?.severity ?? 'NORMAL',
+      reason: anomaly?.reason ?? 'All monitoring checks normal.',
+      recommendation: anomaly?.recommendation ?? 'Continue normal monitoring.',
+      windSpeed: sensor.wind_speed,
+      rainfall: sensor.precipitation ?? sensor.rain,
+    } satisfies Reading;
+  });
+
+  const liveAnomalies = readings.filter((reading) => reading.status !== 'NORMAL').slice().reverse();
+  return {
+    readings,
+    latestReading: readings[readings.length - 1],
+    chartReadings: readings.map((reading) => ({
+      ...reading,
+      label: reading.timestamp.slice(5, 16),
+    })),
+    anomalies: liveAnomalies,
+    summary: {
+      totalStations: 3,
+      activeStations: 1,
+      normalReadings: readings.filter((reading) => reading.status === 'NORMAL').length,
+      possibleAnomalies: readings.filter((reading) => reading.status === 'POSSIBLE ANOMALY').length,
+      sensorFaults: readings.filter((reading) => reading.status === 'SENSOR FAULT').length,
+      criticalAlerts: readings.filter((reading) => reading.severity === 'CRITICAL').length,
+    },
+  };
+}
+
+const liveCutoff = (now: Date) => now.toISOString();
+
+type SupabaseAnomaly = {
+  timestamp: string;
+  final_status: Status;
+  fault_type: string;
+  confidence: string;
+  confidence_score: number;
+  severity: Severity;
+  reason: string;
+  recommendation: string;
+};
+
+const configuredSupabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+
+/**
+ * The local adapter remains the default for the static preview. Consumers
+ * switching to Supabase can use this configured client and query entry point;
+ * no future rows are exposed unless the query layer explicitly includes them.
+ */
+export const skyguardSupabaseClient =
+  configuredSupabaseUrl && configuredSupabaseAnonKey
+    ? createClient(configuredSupabaseUrl, configuredSupabaseAnonKey)
+    : null;
+
+export type LiveDashboardData = {
+  readings: Reading[];
+  latestReading: Reading | undefined;
+  chartReadings: Array<Reading & { label: string }>;
+  anomalies: Reading[];
+  summary: {
+    totalStations: number;
+    activeStations: number;
+    normalReadings: number;
+    possibleAnomalies: number;
+    sensorFaults: number;
+    criticalAlerts: number;
+  };
+};
+
+/**
+ * Query anomaly decisions for live/recent monitoring. Keep this cutoff on
+ * anomaly queries too, otherwise a future anomaly could still affect the
+ * latest status or summary even when its sensor row is filtered out.
+ */
+export async function queryLiveAnomalies(
+  client: SupabaseClient,
+  stationId = 'AWS-01',
+  now = new Date(),
+): Promise<SupabaseAnomaly[]> {
+  const { data, error } = await client
+    .from('anomalies')
+    .select('timestamp, final_status, fault_type, confidence, confidence_score, severity, reason, recommendation')
+    .eq('station_id', stationId)
+    .lte('timestamp', liveCutoff(now))
+    .order('timestamp', { ascending: true });
+
+  if (error) throw error;
+  return data ?? [];
+}
+
+const configuredSupabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
