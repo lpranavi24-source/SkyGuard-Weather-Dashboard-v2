@@ -1,3 +1,5 @@
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+
 export type Status = 'NORMAL' | 'POSSIBLE ANOMALY' | 'SENSOR FAULT';
 export type Severity = 'NORMAL' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
 
@@ -6402,6 +6404,7 @@ type SupabaseAnomaly = {
 };
 
 const configuredSupabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const configuredSupabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 /**
  * The local adapter remains the default for the static preview. Consumers
@@ -6449,4 +6452,3 @@ export async function queryLiveAnomalies(
   return data ?? [];
 }
 
-const configuredSupabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
