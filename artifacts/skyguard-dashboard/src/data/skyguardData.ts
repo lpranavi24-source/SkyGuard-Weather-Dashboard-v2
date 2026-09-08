@@ -1,5 +1,3 @@
-import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-
 export type Status = 'NORMAL' | 'POSSIBLE ANOMALY' | 'SENSOR FAULT';
 export type Severity = 'NORMAL' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
 
@@ -6267,16 +6265,6 @@ export const liveChartReadings = liveReadings.map((reading) => ({
   ...reading,
   label: reading.timestamp.slice(5, 16),
 }));
-export const liveComparisonReadings = comparisonReadings.filter((reading) => timestampMs(reading.timestamp) <= Date.now());
-export const liveReferenceReadings = referenceReadings.filter((reading) => timestampMs(reading.timestamp) <= Date.now());
-export const comparisonChartReadings = liveComparisonReadings.map((reading) => ({
-  ...reading,
-  label: reading.timestamp.slice(5, 16),
-}));
-export const referenceChartReadings = liveReferenceReadings.map((reading) => ({
-  ...reading,
-  label: reading.timestamp.slice(5, 16),
-}));
 export const liveAnomalies = liveReadings.filter((reading) => reading.status !== 'NORMAL').slice().reverse();
 export const liveSummary = {
   totalStations: 3,
@@ -6414,7 +6402,6 @@ type SupabaseAnomaly = {
 };
 
 const configuredSupabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const configuredSupabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 /**
  * The local adapter remains the default for the static preview. Consumers
@@ -6462,3 +6449,4 @@ export async function queryLiveAnomalies(
   return data ?? [];
 }
 
+const configuredSupabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
