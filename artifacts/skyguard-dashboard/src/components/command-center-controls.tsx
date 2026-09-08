@@ -247,7 +247,7 @@ export function CommandCenterControls({
                   value={searchText}
                   onChange={(event) => onSearchTextChange(event.target.value)}
                   placeholder="Search Visakhapatnam, Kakinada..."
-                  className="w-full rounded-xl border border-white/10 bg-[#0b1622] py-2.5 pl-9 pr-3 text-sm text-slate-200 outline-none transition placeholder:text-slate-600 focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-300/10"
+                  className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-9 pr-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-300/10"
                 />
               </div>
               <div className="relative mt-2">
@@ -436,7 +436,7 @@ export function CommandCenterControls({
                 onChange={(event) => onAlertDraftChange('message', event.target.value)}
                 placeholder="Describe the condition and operator action..."
                 rows={3}
-                className="w-full resize-none rounded-xl border border-white/10 bg-[#0b1622] px-3 py-2.5 text-sm leading-5 text-slate-200 outline-none transition placeholder:text-slate-600 focus:border-amber-300/45 focus:ring-2 focus:ring-amber-300/10"
+                className="w-full resize-none rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm leading-5 text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-amber-300/45 focus:ring-2 focus:ring-amber-300/10"
               />
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -463,7 +463,7 @@ export function CommandCenterControls({
                   aria-label="Warning target zone"
                   value={alertDraft.targetZone}
                   onChange={(event) => onAlertDraftChange('targetZone', event.target.value)}
-                  className="w-full rounded-xl border border-white/10 bg-[#0b1622] px-3 py-2.5 text-xs text-slate-200 outline-none transition focus:border-amber-300/45 focus:ring-2 focus:ring-amber-300/10"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-xs text-slate-700 outline-none transition focus:border-amber-300/45 focus:ring-2 focus:ring-amber-300/10"
                 >
                   <option value="">Select target zone</option>
                   {zoneStatusData.map((zone) => <option key={zone.id} value={zone.id}>{zone.name}</option>)}

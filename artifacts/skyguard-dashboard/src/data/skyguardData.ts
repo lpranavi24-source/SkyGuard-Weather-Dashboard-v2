@@ -6267,6 +6267,16 @@ export const liveChartReadings = liveReadings.map((reading) => ({
   ...reading,
   label: reading.timestamp.slice(5, 16),
 }));
+export const liveComparisonReadings = comparisonReadings.filter((reading) => timestampMs(reading.timestamp) <= Date.now());
+export const liveReferenceReadings = referenceReadings.filter((reading) => timestampMs(reading.timestamp) <= Date.now());
+export const comparisonChartReadings = liveComparisonReadings.map((reading) => ({
+  ...reading,
+  label: reading.timestamp.slice(5, 16),
+}));
+export const referenceChartReadings = liveReferenceReadings.map((reading) => ({
+  ...reading,
+  label: reading.timestamp.slice(5, 16),
+}));
 export const liveAnomalies = liveReadings.filter((reading) => reading.status !== 'NORMAL').slice().reverse();
 export const liveSummary = {
   totalStations: 3,
