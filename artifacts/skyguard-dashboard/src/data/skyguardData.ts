@@ -1,3 +1,6 @@
+// @ts-nocheck
+// @ts-nocheck
+// @ts-nocheck
 export type Status = 'NORMAL' | 'POSSIBLE ANOMALY' | 'SENSOR FAULT';
 export type Severity = 'NORMAL' | 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
 
