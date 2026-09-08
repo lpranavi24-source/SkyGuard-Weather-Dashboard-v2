@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -34,63 +34,63 @@
 }
 
 :root {
-  --background: 222 33% 7%;
-  --foreground: 210 28% 92%;
-  --border: 218 24% 18%;
-  --card: 222 29% 10%;
-  --card-foreground: 210 28% 92%;
-  --card-border: 218 24% 18%;
-  --popover: 222 29% 12%;
-  --popover-foreground: 210 28% 92%;
-  --primary: 186 95% 53%;
-  --primary-foreground: 222 33% 7%;
-  --secondary: 217 20% 16%;
-  --secondary-foreground: 210 28% 92%;
-  --muted: 219 18% 14%;
-  --muted-foreground: 216 14% 58%;
-  --accent: 42 96% 61%;
-  --accent-foreground: 222 33% 7%;
-  --destructive: 2 85% 63%;
-  --destructive-foreground: 210 28% 95%;
-  --input: 218 24% 22%;
-  --ring: 186 95% 53%;
-  --chart-1: 186 95% 53%;
-  --chart-2: 42 96% 61%;
-  --chart-3: 2 85% 63%;
-  --chart-4: 147 62% 56%;
-  --chart-5: 275 70% 68%;
-  --sidebar: 222 36% 6%;
-  --sidebar-foreground: 210 28% 92%;
-  --sidebar-border: 218 24% 16%;
-  --sidebar-primary: 186 95% 53%;
-  --sidebar-primary-foreground: 222 33% 7%;
-  --sidebar-accent: 217 20% 15%;
-  --sidebar-accent-foreground: 210 28% 92%;
-  --sidebar-ring: 186 95% 53%;
-  --app-font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --background: 195 32% 97%;
+  --foreground: 207 35% 18%;
+  --border: 199 24% 86%;
+  --card: 0 0% 100%;
+  --card-foreground: 207 35% 18%;
+  --card-border: 199 24% 86%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 207 35% 18%;
+  --primary: 185 78% 34%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 195 28% 93%;
+  --secondary-foreground: 207 35% 18%;
+  --muted: 195 28% 93%;
+  --muted-foreground: 207 15% 45%;
+  --accent: 39 92% 52%;
+  --accent-foreground: 34 60% 17%;
+  --destructive: 2 70% 52%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 199 24% 82%;
+  --ring: 185 78% 34%;
+  --chart-1: 185 78% 34%;
+  --chart-2: 39 92% 52%;
+  --chart-3: 2 70% 52%;
+  --chart-4: 153 54% 39%;
+  --chart-5: 265 52% 54%;
+  --sidebar: 194 34% 95%;
+  --sidebar-foreground: 207 35% 18%;
+  --sidebar-border: 199 24% 86%;
+  --sidebar-primary: 185 78% 34%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 195 28% 91%;
+  --sidebar-accent-foreground: 207 35% 18%;
+  --sidebar-ring: 185 78% 34%;
+  --app-font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
   --app-font-mono: 'DM Mono', ui-monospace, monospace;
   --radius: 0.75rem;
-  --elevate-1: rgba(255,255,255,.035);
-  --elevate-2: rgba(255,255,255,.075);
+  --elevate-1: rgba(18, 80, 94, .035);
+  --elevate-2: rgba(18, 80, 94, .075);
 }
 
-.dark { color-scheme: dark; }
+.dark { color-scheme: light; }
 
 @layer base {
   * { @apply border-border; }
-  html { scroll-behavior: smooth; background: #0c111a; }
+  html { scroll-behavior: smooth; background: #eef6f7; }
   body { @apply font-sans antialiased bg-background text-foreground; margin: 0; min-width: 320px; }
   button, a { -webkit-tap-highlight-color: transparent; }
-  ::selection { background: rgba(43, 218, 228, .22); color: #e7fbff; }
+  ::selection { background: rgba(20, 148, 162, .18); color: #163846; }
 }
 
 @layer utilities {
   .font-mono-sg { font-family: var(--app-font-mono); }
-  .text-glow { text-shadow: 0 0 24px rgba(43,218,228,.22); }
-  .panel { background: linear-gradient(145deg, rgba(24,32,47,.94), rgba(13,19,29,.94)); border: 1px solid rgba(122,145,178,.16); box-shadow: 0 14px 45px rgba(0,0,0,.16); }
-  .panel-soft { background: rgba(18,26,39,.72); border: 1px solid rgba(122,145,178,.13); }
+  .text-glow { text-shadow: 0 0 24px rgba(20,148,162,.16); }
+  .panel { background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(247,252,252,.98)); border: 1px solid #dbe8ea; box-shadow: 0 14px 45px rgba(29, 83, 95, .08); }
+  .panel-soft { background: rgba(246,251,252,.96); border: 1px solid #dbe8ea; }
   .scanlines { position: relative; overflow: hidden; }
-  .scanlines::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .055; background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,255,255,.12) 4px); mix-blend-mode: screen; }
+  .scanlines::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .022; background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(20,90,102,.14) 4px); mix-blend-mode: multiply; }
   .status-pulse { animation: status-pulse 2.6s ease-in-out infinite; }
   .enter-up { animation: enter-up .55s cubic-bezier(.2,.8,.2,1) both; }
   .enter-up-delay-1 { animation-delay: .08s; }
@@ -105,10 +105,60 @@
 @keyframes spin { to { transform: rotate(360deg); } }
 
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #0c111a; }
-::-webkit-scrollbar-thumb { background: #263548; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #34506a; }
+::-webkit-scrollbar-track { background: #eef6f7; }
+::-webkit-scrollbar-thumb { background: #b8cdd2; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #8eabb2; }
 
-.recharts-cartesian-axis-tick-value { fill: #718198; font-family: 'DM Mono', monospace; font-size: 10px; }
-.recharts-cartesian-grid-horizontal line, .recharts-cartesian-grid-vertical line { stroke: rgba(129,153,182,.11); }
+.recharts-cartesian-axis-tick-value { fill: #718894; font-family: 'DM Mono', monospace; font-size: 10px; }
+.recharts-cartesian-grid-horizontal line, .recharts-cartesian-grid-vertical line { stroke: rgba(82,126,136,.16); }
 .recharts-tooltip-wrapper { outline: none; }
+
+/* Light, human-centered theme adapter for the existing telemetry UI. */
+[class~="text-slate-100"] { color: #173344 !important; }
+[class~="text-slate-200"] { color: #294656 !important; }
+[class~="text-slate-300"] { color: #405c6b !important; }
+[class~="text-slate-400"] { color: #607986 !important; }
+[class~="text-slate-500"] { color: #718894 !important; }
+[class~="text-slate-600"] { color: #91a3aa !important; }
+[class~="text-slate-700"] { color: #b7c6cb !important; }
+[class~="text-cyan-300"] { color: #0b8d9d !important; }
+[class~="text-cyan-200"] { color: #147886 !important; }
+[class~="text-cyan-100"] { color: #286975 !important; }
+[class~="text-emerald-300"] { color: #16825f !important; }
+[class~="text-emerald-300\/70"] { color: #3d9678 !important; }
+[class~="text-amber-200"] { color: #9d6909 !important; }
+[class~="text-amber-200\/70"] { color: #ad7c28 !important; }
+[class~="text-red-300"] { color: #c34c4c !important; }
+[class~="text-orange-200"] { color: #a86412 !important; }
+[class~="text-violet-300"] { color: #7459a8 !important; }
+
+[class*="border-white"] { border-color: #dbe7ea !important; }
+[class*="divide-white"] > :not([hidden]) ~ :not([hidden]) { border-color: #e3edef !important; }
+[class*="bg-white\/"] { background-color: rgba(229, 240, 242, .62) !important; }
+[class*="bg-\#"] { background-color: #ffffff !important; }
+[class~="bg-black\/20"] { background-color: rgba(34, 76, 86, .08) !important; }
+[class~="bg-slate-700"] { background-color: #c8d8dc !important; }
+[class~="bg-slate-400"] { background-color: #91a8af !important; }
+[class~="bg-emerald-300\/10"] { background-color: #e6f6ef !important; }
+[class~="bg-red-400\/10"] { background-color: #fff0ef !important; }
+[class~="bg-amber-300\/10"] { background-color: #fff5dd !important; }
+[class~="border-emerald-300\/20"] { border-color: #bce5d3 !important; }
+[class~="border-red-400\/20"] { border-color: #f0c7c4 !important; }
+[class~="border-amber-300\/20"] { border-color: #f1d99e !important; }
+[class~="border-cyan-300\/15"] { border-color: #c4e6e9 !important; }
+[class~="border-cyan-300\/20"] { border-color: #b6dfe3 !important; }
+[class~="border-cyan-300\/30"] { border-color: #8dcdd3 !important; }
+
+[class*="bg-\#0b111b"] { background-color: rgba(255,255,255,.94) !important; }
+[class*="bg-\#0d1522"] { background-color: #f4fafb !important; }
+[class*="bg-\#182334"] { background-color: #ffffff !important; }
+[class*="bg-\#121b29"] { background-color: #ffffff !important; }
+[class*="bg-\#0b121d"] { background-color: rgba(255,255,255,.94) !important; }
+[class*="bg-\#102332"] { background-color: #edf7f8 !important; }
+[class*="bg-\#0e1c27"] { background-color: #ffffff !important; }
+[class*="bg-\#131a25"] { background-color: #173344 !important; }
+
+[class~="hover:text-slate-100"]:hover { color: #173344 !important; }
+[class~="hover:text-slate-200"]:hover { color: #294656 !important; }
+[class~="hover:text-cyan-100"]:hover { color: #286975 !important; }
+[class~="hover:text-cyan-300"]:hover { color: #0b8d9d !important; }
